@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.tema-section {
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.tema-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1a1a2e;
+}
+
+.tema-desc {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.tema-form input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #d0d0d0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.tema-form input:focus {
+  outline: none;
+  border-color: #0f3460;
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  flex: 1;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #0f3460;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+.form-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.required {
+  color: #e74c3c;
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  font-family: inherit;
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0f3460;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0f3460, #1a1a2e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-large {
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: white;
+  color: #0f3460;
+  border: 2px solid #0f3460;
+  border-radius: 8px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #0f3460;
+  color: white;
+}
+
+.preview-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.preview-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.preview-container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2.5rem 3rem;
+  max-width: 210mm;
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12pt;
+  line-height: 1.8;
+}
+
+.contrato-titulo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14pt;
+  margin: 1.5rem 0 1rem;
+  text-transform: uppercase;
+}
+
+.contrato-subtitulo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 13pt;
+  margin: 1rem 0;
+}
+
+.contrato-linha {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #888;
+  font-size: 0.8rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-container {
+    padding: 1.5rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .preview-actions {
+    width: 100%;
+  }
+
+  .preview-actions .btn-secondary {
+    flex: 1;
+  }
+}
