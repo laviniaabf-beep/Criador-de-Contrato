@@ -1,8 +1,14 @@
 import { useState } from 'react';
+import { useAuth } from './contexts/AuthContext';
 import { gerarContrato } from './templates/contractTemplates';
+import Login from './components/Login';
+import Register from './components/Register';
 import './App.css';
 
 function App() {
+  const { user, loading, logout } = useAuth();
+  const [authPage, setAuthPage] = useState('login');
+
   const [etapa, setEtapa] = useState('tema');
   const [tema, setTema] = useState('');
   const [formData, setFormData] = useState({});
@@ -43,6 +49,30 @@ function App() {
     });
   };
 
+  const novoContrato = () => {
+    setEtapa('tema');
+    setTema('');
+    setFormData({});
+    setContratoGerado('');
+  };
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="spinner" />
+        <p>Carregando...</p>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return authPage === 'login' ? (
+      <Login onToggleForm={() => setAuthPage('register')} />
+    ) : (
+      <Register onToggleForm={() => setAuthPage('login')} />
+    );
+  }
+
   const campos = [
     { nome: 'parte1', label: 'Nome do Contratante', tipo: 'text', obrigatorio: true },
     { nome: 'doc1', label: 'CPF/CNPJ do Contratante', tipo: 'text', obrigatorio: true },
@@ -66,6 +96,10 @@ function App() {
         <div className="header-content">
           <h1 className="logo">📝 Criador de Contratos</h1>
           <p className="subtitle">Defina o tema e gere seu contrato personalizado</p>
+        </div>
+        <div className="header-user">
+          <span>{user.email}</span>
+          <button className="btn-logout" onClick={logout}>Sair</button>
         </div>
       </header>
 
@@ -134,9 +168,7 @@ function App() {
               <h2>Pré-visualização</h2>
               <div className="preview-actions">
                 <button className="btn-secondary" onClick={exportarPDF}>📄 Exportar PDF</button>
-                <button className="btn-secondary" onClick={() => { setEtapa('tema'); setTema(''); setFormData({}); setContratoGerado(''); }}>
-                  Novo Contrato
-                </button>
+                <button className="btn-secondary" onClick={novoContrato}>Novo Contrato</button>
               </div>
             </div>
             <div className="preview-container" id="contrato-texto">
