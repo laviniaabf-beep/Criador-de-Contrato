@@ -175,7 +175,7 @@ h1, h2, h3, h4 {
 
 .auth-card {
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
 }
 
 .auth-card .auth-brand-mobile {
@@ -185,13 +185,13 @@ h1, h2, h3, h4 {
 .auth-card h2 {
   font-size: 1.85rem;
   color: var(--navy);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .auth-card .auth-subtitle {
   color: var(--gray-600);
   font-size: 0.95rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
   font-weight: 400;
 }
 
@@ -199,16 +199,16 @@ h1, h2, h3, h4 {
   background: #FEF2F2;
   border: 1px solid #FECACA;
   color: #991B1B;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.1rem;
   border-radius: var(--radius-md);
   font-size: 0.85rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   text-align: center;
   line-height: 1.5;
 }
 
 .auth-field {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .auth-field label {
@@ -217,16 +217,16 @@ h1, h2, h3, h4 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   color: var(--gray-800);
 }
 
 .auth-field input {
   width: 100%;
-  padding: 0.85rem 1.1rem;
+  padding: 1rem 1.2rem;
   border: 1.5px solid var(--gray-100);
   border-radius: var(--radius-md);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-family: 'Inter', sans-serif;
   transition: all 0.2s ease;
   background: var(--off-white);
@@ -249,7 +249,7 @@ h1, h2, h3, h4 {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md);
-  padding: 1rem 1.5rem;
+  padding: 1.05rem 1.5rem;
   font-size: 0.95rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
@@ -281,14 +281,14 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   color: var(--gray-400);
   font-size: 0.78rem;
 }
 
 .auth-toggle {
   text-align: center;
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
   color: var(--gray-600);
 }
@@ -627,7 +627,7 @@ h1, h2, h3, h4 {
   }
 
   .auth-form-panel {
-    padding: 3rem 2rem;
+    padding: 3rem 2.5rem;
   }
 
   .auth-card .auth-brand-mobile {
