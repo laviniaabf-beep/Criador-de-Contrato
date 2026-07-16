@@ -208,22 +208,12 @@ h1, h2, h3, h4 {
 }
 
 .auth-field {
-  margin-bottom: 1.75rem;
-}
-
-.auth-field label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.6rem;
-  color: var(--gray-800);
+  margin-bottom: 1rem;
 }
 
 .auth-field input {
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.3rem;
   border: 1.5px solid var(--gray-100);
   border-radius: var(--radius-md);
   font-size: 1rem;
@@ -242,6 +232,7 @@ h1, h2, h3, h4 {
 
 .auth-field input::placeholder {
   color: var(--gray-400);
+  font-weight: 500;
 }
 
 .btn-primary {

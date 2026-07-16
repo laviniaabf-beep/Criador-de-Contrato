@@ -52,32 +52,29 @@ export default function Register({ onToggleForm }) {
       {error && <div className="auth-error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="auth-field">
-          <label>Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="seu@email.com"
+            placeholder="Email"
             required
           />
         </div>
         <div className="auth-field">
-          <label>Senha (mín. 6 caracteres)</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Crie uma senha"
+            placeholder="Senha"
             required
           />
         </div>
         <div className="auth-field">
-          <label>Confirmar Senha</label>
           <input
             type="password"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
-            placeholder="Repita a senha"
+            placeholder="Confirmar senha"
             required
           />
         </div>

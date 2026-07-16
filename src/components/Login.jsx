@@ -41,22 +41,20 @@ export default function Login({ onToggleForm }) {
       {error && <div className="auth-error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="auth-field">
-          <label>Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="seu@email.com"
+            placeholder="Email"
             required
           />
         </div>
         <div className="auth-field">
-          <label>Senha</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Sua senha"
+            placeholder="Senha"
             required
           />
         </div>
