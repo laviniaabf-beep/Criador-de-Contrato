@@ -93,12 +93,12 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <div className="header-content">
-          <h1 className="logo">📝 Criador de Contratos</h1>
-          <p className="subtitle">Defina o tema e gere seu contrato personalizado</p>
+        <div className="header-brand">
+          <div className="brand-icon">⚖️</div>
+          <h1>Criador de Contratos <span className="brand-badge">Legal</span></h1>
         </div>
         <div className="header-user">
-          <span>{user.email}</span>
+          <span className="user-email">{user.email}</span>
           <button className="btn-logout" onClick={logout}>Sair</button>
         </div>
       </header>
