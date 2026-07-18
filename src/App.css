@@ -75,13 +75,13 @@ h1, h2, h3, h4 {
 }
 
 .auth-institutional {
-  flex: 0 0 45%;
+  flex: 0 0 38%;
   background: linear-gradient(160deg, #0A0F1E 0%, #0F172A 40%, #1A2942 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 4rem;
+  padding: 5rem 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -169,13 +169,13 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem;
+  padding: 3rem;
   background: var(--white);
 }
 
 .auth-card {
   width: 100%;
-  max-width: 560px;
+  max-width: 640px;
 }
 
 .auth-card .auth-brand-mobile {
@@ -213,15 +213,16 @@ h1, h2, h3, h4 {
 
 .auth-field input {
   width: 100%;
-  padding: 1.75rem 1.5rem;
+  padding: 1.75rem 1.75rem;
   border: 2px solid var(--gray-100);
   border-radius: var(--radius-md);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
   transition: all 0.2s ease;
   background: var(--white);
   color: var(--navy);
+  box-sizing: border-box;
 }
 
 .auth-field input:focus {
