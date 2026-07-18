@@ -32,12 +32,13 @@ export default function Login({ onToggleForm }) {
 
   return (
     <AuthLayout>
-      <div className="auth-brand-mobile">
-        <span className="logo-icon">⚖️</span>
-        <h1>Criador de Contratos</h1>
+      <div className="auth-card-header">
+        <div className="auth-brand-mobile">
+          <span className="logo-icon">⚖️</span>
+          <h1>Criador de Contratos</h1>
+        </div>
+        <button className="auth-top-link" onClick={onToggleForm}>Cadastre-se</button>
       </div>
-      <h2>Entrar</h2>
-      <p className="auth-subtitle">Acesse sua conta para continuar</p>
       {error && <div className="auth-error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="auth-field">
@@ -62,14 +63,6 @@ export default function Login({ onToggleForm }) {
           {loading ? 'Entrando...' : 'Entrar'}
         </button>
       </form>
-      <div className="auth-security-note">
-        <span>🔒</span>
-        <span>Conexão segura • Dados criptografados</span>
-      </div>
-      <p className="auth-toggle">
-        Não tem conta?{' '}
-        <button onClick={onToggleForm}>Cadastre-se</button>
-      </p>
     </AuthLayout>
   );
 }
