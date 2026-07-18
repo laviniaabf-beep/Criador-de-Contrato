@@ -32,37 +32,37 @@ export default function Login({ onToggleForm }) {
 
   return (
     <AuthLayout>
-      <div className="auth-card-header">
-        <div className="auth-brand-mobile">
+      <button className="auth-top-link" onClick={onToggleForm}>Cadastre-se</button>
+      <div className="auth-card">
+        <div className="auth-brand">
           <span className="logo-icon">⚖️</span>
           <h1>Criador de Contratos</h1>
         </div>
-        <button className="auth-top-link" onClick={onToggleForm}>Cadastre-se</button>
+        {error && <div className="auth-error">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <div className="auth-field">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div className="auth-field">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Senha"
+              required
+            />
+          </div>
+          <button type="submit" className="btn-primary btn-large" disabled={loading}>
+            {loading ? 'Entrando...' : 'Entrar'}
+          </button>
+        </form>
       </div>
-      {error && <div className="auth-error">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="auth-field">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-        </div>
-        <div className="auth-field">
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Senha"
-            required
-          />
-        </div>
-        <button type="submit" className="btn-primary btn-large" disabled={loading}>
-          {loading ? 'Entrando...' : 'Entrar'}
-        </button>
-      </form>
     </AuthLayout>
   );
 }

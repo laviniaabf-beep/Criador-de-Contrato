@@ -75,13 +75,13 @@ h1, h2, h3, h4 {
 }
 
 .auth-institutional {
-  flex: 0 0 30%;
+  flex: 0 0 42%;
   background: linear-gradient(160deg, #0A0F1E 0%, #0F172A 40%, #1A2942 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 4rem 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -167,42 +167,42 @@ h1, h2, h3, h4 {
 .auth-form-panel {
   flex: 1;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 2.5rem 0 2.5rem 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
   background: var(--white);
+  position: relative;
 }
 
 .auth-card {
   width: 100%;
-  max-width: none;
-  padding-right: 3rem;
+  max-width: 520px;
 }
 
-.auth-card-header {
+.auth-brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
-.auth-card .auth-brand-mobile {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.auth-brand .logo-icon {
+  font-size: 2rem;
 }
 
-.auth-card .auth-brand-mobile .logo-icon {
-  font-size: 1.5rem;
-}
-
-.auth-card .auth-brand-mobile h1 {
-  font-size: 1.3rem;
+.auth-brand h1 {
+  font-size: 1.6rem;
   color: var(--navy);
   font-family: 'Playfair Display', serif;
+  text-align: center;
 }
 
 .auth-top-link {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
   background: none;
   border: 1.5px solid var(--navy);
   color: var(--navy);
@@ -620,23 +620,19 @@ h1, h2, h3, h4 {
     padding: 2.5rem 1.5rem;
   }
 
-  .auth-card {
-    padding-right: 0;
+  .auth-top-link {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
   }
 
-  .auth-card-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .auth-card .auth-brand-mobile .logo-icon {
+  .auth-brand .logo-icon {
     font-size: 1.5rem;
   }
 
-  .auth-card .auth-brand-mobile h1 {
-    font-size: 1.2rem;
-    color: var(--navy);
+  .auth-brand h1 {
+    font-size: 1.3rem;
   }
 
   .header {
