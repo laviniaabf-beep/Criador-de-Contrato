@@ -4,6 +4,7 @@ import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import html2pdf from 'html2pdf.js';
 import './App.css';
 
 function saveProjects(email, projects) {
@@ -121,17 +122,15 @@ function App() {
     const elemento = document.getElementById('contrato-texto');
     if (!elemento) return;
 
-    import('html2pdf.js').then((html2pdf) => {
-      const opt = {
-        margin: [10, 10],
-        filename: 'contrato.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pageblock: { mode: ['avoid-all', 'css', 'legacy'] }
-      };
-      html2pdf.default().set(opt).from(elemento).save();
-    });
+    const opt = {
+      margin: [10, 10],
+      filename: 'contrato.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pageblock: { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    html2pdf().set(opt).from(elemento).save();
   };
 
   if (loading) {
