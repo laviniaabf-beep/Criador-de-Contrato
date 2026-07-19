@@ -11,6 +11,7 @@ function loadProjects(email) {
 export default function Dashboard({ user, onSelectProject, onNewContract }) {
   const [projects, setProjects] = useState(() => loadProjects(user.email));
   const [deleting, setDeleting] = useState(null);
+  const [deletingAll, setDeletingAll] = useState(false);
 
   const handleDelete = (e, id) => {
     e.stopPropagation();
@@ -21,6 +22,16 @@ export default function Dashboard({ user, onSelectProject, onNewContract }) {
       setDeleting(null);
     } else {
       setDeleting(id);
+    }
+  };
+
+  const handleDeleteAll = () => {
+    if (deletingAll) {
+      setProjects([]);
+      localStorage.setItem(`contrato_projects_${user.email}`, '[]');
+      setDeletingAll(false);
+    } else {
+      setDeletingAll(true);
     }
   };
 
@@ -37,7 +48,18 @@ export default function Dashboard({ user, onSelectProject, onNewContract }) {
               : `${projects.length} contrato${projects.length !== 1 ? 's' : ''} salvo${projects.length !== 1 ? 's' : ''}`}
           </p>
         </div>
-        <button className="btn-primary" onClick={onNewContract}>+ Novo Contrato</button>
+        <div className="dashboard-header-actions">
+          {projects.length > 0 && (
+            <button
+              className={`btn-delete-all ${deletingAll ? 'btn-delete-all-confirm' : ''}`}
+              onClick={handleDeleteAll}
+              onBlur={() => setDeletingAll(false)}
+            >
+              {deletingAll ? 'Confirmar exclusão' : 'Excluir Todos'}
+            </button>
+          )}
+          <button className="btn-primary" onClick={onNewContract}>+ Novo Contrato</button>
+        </div>
       </div>
 
       {projects.length > 0 && (

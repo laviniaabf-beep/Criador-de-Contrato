@@ -635,6 +635,37 @@ h1, h2, h3, h4 {
   margin-top: 0.25rem;
 }
 
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-delete-all {
+  background: none;
+  border: 1.5px solid #DC2626;
+  color: #DC2626;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-delete-all:hover {
+  background: #DC2626;
+  color: white;
+}
+
+.btn-delete-all-confirm {
+  background: #DC2626;
+  color: white;
+  font-weight: 700;
+}
+
 .dashboard-header .btn-primary {
   width: auto;
   padding: 0.75rem 1.75rem;
