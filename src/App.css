@@ -609,6 +609,140 @@ h1, h2, h3, h4 {
   margin-top: 3rem;
 }
 
+/* ─── DOCUMENT FORM ─── */
+
+.doc-form {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-100);
+}
+
+.doc-form-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--gray-50);
+}
+
+.doc-form-icon {
+  font-size: 1.5rem;
+}
+
+.doc-form-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0;
+}
+
+.doc-field {
+  margin-bottom: 1.5rem;
+}
+
+.doc-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  color: var(--gray-800);
+}
+
+.doc-badge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  background: var(--gray-50);
+  color: var(--gray-600);
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.doc-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.doc-input-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+}
+
+.doc-input-wrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  background: var(--off-white);
+  color: var(--navy);
+}
+
+.doc-input-wrapper input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(197, 168, 128, 0.12);
+}
+
+.doc-input-wrapper input::placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+}
+
+.doc-output {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doc-output-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.doc-output-label {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.doc-output-item code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.82rem;
+  color: var(--navy);
+  font-weight: 600;
+  background: var(--white);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-100);
+}
+
 /* ─── DASHBOARD ─── */
 
 .dashboard {
