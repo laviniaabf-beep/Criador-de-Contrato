@@ -183,14 +183,14 @@ function App() {
 
   const campos = [
     { nome: 'parte1', label: 'Nome do Contratante', tipo: 'text', obrigatorio: true },
-    { nome: 'doc1', label: 'CPF/CNPJ do Contratante', tipo: 'text', obrigatorio: true },
+    { nome: 'doc1', label: 'CPF/CNPJ do Contratante', tipo: 'text', obrigatorio: true, placeholder: '000.000.000-00 ou 00.000.000/0000-00' },
     { nome: 'endereco1', label: 'Endereço do Contratante', tipo: 'text' },
     { nome: 'parte2', label: 'Nome do Contratado', tipo: 'text', obrigatorio: true },
-    { nome: 'doc2', label: 'CPF/CNPJ do Contratado', tipo: 'text', obrigatorio: true },
+    { nome: 'doc2', label: 'CPF/CNPJ do Contratado', tipo: 'text', obrigatorio: true, placeholder: '000.000.000-00 ou 00.000.000/0000-00' },
     { nome: 'endereco2', label: 'Endereço do Contratado', tipo: 'text' },
     { nome: 'objeto', label: 'Objeto do Contrato (descrição detalhada)', tipo: 'textarea', obrigatorio: true },
     { nome: 'condicoes', label: 'Condições Específicas', tipo: 'textarea' },
-    { nome: 'valor', label: 'Valor (R$)', tipo: 'text' },
+    { nome: 'valor', label: 'Valor (R$)', tipo: 'text', placeholder: 'R$ 0,00' },
     { nome: 'forma_pagamento', label: 'Forma de Pagamento', tipo: 'text' },
     { nome: 'prazo', label: 'Prazo de Vigência', tipo: 'text', obrigatorio: true },
     { nome: 'data_inicio', label: 'Data de Início', tipo: 'date' },
@@ -263,6 +263,7 @@ function App() {
                         onChange={(e) => handleChange(campo.nome, e.target.value)}
                         rows={3}
                         required={campo.obrigatorio}
+                        placeholder={campo.placeholder || ''}
                       />
                     ) : (
                       <input
@@ -271,6 +272,7 @@ function App() {
                         value={formData[campo.nome] || ''}
                         onChange={(e) => handleChange(campo.nome, e.target.value)}
                         required={campo.obrigatorio}
+                        placeholder={campo.placeholder || ''}
                       />
                     )}
                   </div>
