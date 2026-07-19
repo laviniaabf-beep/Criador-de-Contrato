@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from './contexts/AuthContext';
 import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
@@ -50,38 +50,34 @@ function App() {
     e.preventDefault();
     const texto = gerarContrato(tema, formData);
     setContratoGerado(texto);
+
+    const now = new Date().toISOString();
+    setProjects((prev) => {
+      const updated = [...prev];
+      if (currentProjectId) {
+        const idx = updated.findIndex((p) => p.id === currentProjectId);
+        if (idx !== -1) {
+          updated[idx] = { ...updated[idx], tema, formData, contratoGerado: texto, updatedAt: now };
+        }
+      } else {
+        const newId = Date.now().toString(36);
+        updated.push({
+          id: newId,
+          tema,
+          formData,
+          contratoGerado: texto,
+          createdAt: now,
+          updatedAt: now,
+        });
+        setCurrentProjectId(newId);
+      }
+      saveProjects(user.email, updated);
+      return updated;
+    });
+
     setEtapa('preview');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const saveCurrentContract = useCallback(() => {
-    if (!user || !contratoGerado) return;
-    const now = new Date().toISOString();
-    const updated = [...projects];
-    if (currentProjectId) {
-      const idx = updated.findIndex((p) => p.id === currentProjectId);
-      if (idx !== -1) {
-        updated[idx] = { ...updated[idx], tema, formData, contratoGerado, updatedAt: now };
-      }
-    } else {
-      updated.push({
-        id: Date.now().toString(36),
-        tema,
-        formData,
-        contratoGerado,
-        createdAt: now,
-        updatedAt: now,
-      });
-    }
-    setProjects(updated);
-    saveProjects(user.email, updated);
-  }, [user, projects, currentProjectId, tema, formData, contratoGerado]);
-
-  useEffect(() => {
-    if (etapa === 'preview' && contratoGerado) {
-      saveCurrentContract();
-    }
-  }, [etapa, contratoGerado, saveCurrentContract]);
 
   const novoContrato = () => {
     setEtapa('dashboard');
