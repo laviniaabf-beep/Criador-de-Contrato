@@ -1,18 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from './contexts/AuthContext';
 import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './components/Dashboard';
 import './App.css';
+
+function saveProjects(email, projects) {
+  localStorage.setItem(`contrato_projects_${email}`, JSON.stringify(projects));
+}
+
+function loadProjects(email) {
+  try {
+    return JSON.parse(localStorage.getItem(`contrato_projects_${email}`) || '[]');
+  } catch {
+    return [];
+  }
+}
 
 function App() {
   const { user, loading, logout } = useAuth();
   const [authPage, setAuthPage] = useState('login');
 
-  const [etapa, setEtapa] = useState('tema');
+  const [etapa, setEtapa] = useState('dashboard');
   const [tema, setTema] = useState('');
   const [formData, setFormData] = useState({});
   const [contratoGerado, setContratoGerado] = useState('');
+  const [currentProjectId, setCurrentProjectId] = useState(null);
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    if (user) {
+      setProjects(loadProjects(user.email));
+    }
+  }, [user]);
 
   const handleChange = (nome, valor) => {
     setFormData((prev) => ({ ...prev, [nome]: valor }));
@@ -32,6 +54,60 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const saveCurrentContract = useCallback(() => {
+    if (!user || !contratoGerado) return;
+    const now = new Date().toISOString();
+    const updated = [...projects];
+    if (currentProjectId) {
+      const idx = updated.findIndex((p) => p.id === currentProjectId);
+      if (idx !== -1) {
+        updated[idx] = { ...updated[idx], tema, formData, contratoGerado, updatedAt: now };
+      }
+    } else {
+      updated.push({
+        id: Date.now().toString(36),
+        tema,
+        formData,
+        contratoGerado,
+        createdAt: now,
+        updatedAt: now,
+      });
+    }
+    setProjects(updated);
+    saveProjects(user.email, updated);
+  }, [user, projects, currentProjectId, tema, formData, contratoGerado]);
+
+  useEffect(() => {
+    if (etapa === 'preview' && contratoGerado) {
+      saveCurrentContract();
+    }
+  }, [etapa, contratoGerado, saveCurrentContract]);
+
+  const novoContrato = () => {
+    setEtapa('dashboard');
+    setTema('');
+    setFormData({});
+    setContratoGerado('');
+    setCurrentProjectId(null);
+  };
+
+  const iniciarNovoContrato = () => {
+    setTema('');
+    setFormData({});
+    setContratoGerado('');
+    setCurrentProjectId(null);
+    setEtapa('tema');
+  };
+
+  const selecionarProjeto = (proj) => {
+    setTema(proj.tema);
+    setFormData(proj.formData);
+    setContratoGerado(proj.contratoGerado);
+    setCurrentProjectId(proj.id);
+    setEtapa('preview');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const exportarPDF = () => {
     const elemento = document.getElementById('contrato-texto');
     if (!elemento) return;
@@ -47,13 +123,6 @@ function App() {
       };
       html2pdf.default().set(opt).from(elemento).save();
     });
-  };
-
-  const novoContrato = () => {
-    setEtapa('tema');
-    setTema('');
-    setFormData({});
-    setContratoGerado('');
   };
 
   if (loading) {
@@ -104,8 +173,17 @@ function App() {
       </header>
 
       <main className="main">
+        {etapa === 'dashboard' && (
+          <Dashboard
+            user={user}
+            onSelectProject={selecionarProjeto}
+            onNewContract={iniciarNovoContrato}
+          />
+        )}
+
         {etapa === 'tema' && (
           <section className="tema-section">
+            <button className="btn-back" onClick={novoContrato}>← Meus Contratos</button>
             <h2>Qual o tipo de contrato você deseja criar?</h2>
             <p className="tema-desc">Ex: Contrato de Prestação de Serviços, Contrato de Namoro, Contrato de Confidencialidade, Contrato de Comodato...</p>
             <form onSubmit={confirmarTema} className="tema-form">
@@ -168,7 +246,7 @@ function App() {
               <h2>Pré-visualização</h2>
               <div className="preview-actions">
                 <button className="btn-secondary" onClick={exportarPDF}>📄 Exportar PDF</button>
-                <button className="btn-secondary" onClick={novoContrato}>Novo Contrato</button>
+                <button className="btn-secondary" onClick={novoContrato}>Meus Contratos</button>
               </div>
             </div>
             <div className="preview-container" id="contrato-texto">

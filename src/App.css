@@ -609,6 +609,122 @@ h1, h2, h3, h4 {
   margin-top: 3rem;
 }
 
+/* ─── DASHBOARD ─── */
+
+.dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.6rem;
+  color: var(--navy);
+}
+
+.dashboard-sub {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.dashboard-header .btn-primary {
+  width: auto;
+  padding: 0.75rem 1.75rem;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.dashboard-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.dashboard-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-card-header h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+.dashboard-card-date {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dashboard-card-preview {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.dashboard-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.btn-delete:hover {
+  color: #DC2626;
+}
+
+.btn-delete-confirm {
+  color: #DC2626;
+  background: #FEF2F2;
+  font-weight: 600;
+}
+
 /* ─── RESPONSIVE ─── */
 
 @media (max-width: 900px) {
