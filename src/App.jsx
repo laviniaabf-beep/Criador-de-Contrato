@@ -104,6 +104,19 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const deletarProjeto = (id) => {
+    setProjects((prev) => {
+      const updated = prev.filter((p) => p.id !== id);
+      saveProjects(user.email, updated);
+      return updated;
+    });
+  };
+
+  const deletarTodosProjetos = () => {
+    setProjects([]);
+    saveProjects(user.email, []);
+  };
+
   const exportarPDF = () => {
     const elemento = document.getElementById('contrato-texto');
     if (!elemento) return;
@@ -171,9 +184,11 @@ function App() {
       <main className="main">
         {etapa === 'dashboard' && (
           <Dashboard
-            user={user}
+            projects={projects}
             onSelectProject={selecionarProjeto}
             onNewContract={iniciarNovoContrato}
+            onDeleteProject={deletarProjeto}
+            onDeleteAll={deletarTodosProjetos}
           />
         )}
 

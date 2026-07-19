@@ -1,24 +1,13 @@
 import { useState } from 'react';
 
-function loadProjects(email) {
-  try {
-    return JSON.parse(localStorage.getItem(`contrato_projects_${email}`) || '[]');
-  } catch {
-    return [];
-  }
-}
-
-export default function Dashboard({ user, onSelectProject, onNewContract }) {
-  const [projects, setProjects] = useState(() => loadProjects(user.email));
+export default function Dashboard({ projects, onSelectProject, onNewContract, onDeleteProject, onDeleteAll }) {
   const [deleting, setDeleting] = useState(null);
   const [deletingAll, setDeletingAll] = useState(false);
 
   const handleDelete = (e, id) => {
     e.stopPropagation();
     if (deleting === id) {
-      const updated = projects.filter((p) => p.id !== id);
-      setProjects(updated);
-      localStorage.setItem(`contrato_projects_${user.email}`, JSON.stringify(updated));
+      onDeleteProject(id);
       setDeleting(null);
     } else {
       setDeleting(id);
@@ -27,15 +16,12 @@ export default function Dashboard({ user, onSelectProject, onNewContract }) {
 
   const handleDeleteAll = () => {
     if (deletingAll) {
-      setProjects([]);
-      localStorage.setItem(`contrato_projects_${user.email}`, '[]');
+      onDeleteAll();
       setDeletingAll(false);
     } else {
       setDeletingAll(true);
     }
   };
-
-  const cancelDelete = () => setDeleting(null);
 
   return (
     <section className="dashboard">
@@ -88,7 +74,6 @@ export default function Dashboard({ user, onSelectProject, onNewContract }) {
                 <button
                   className={`btn-delete ${deleting === proj.id ? 'btn-delete-confirm' : ''}`}
                   onClick={(e) => handleDelete(e, proj.id)}
-                  onBlur={cancelDelete}
                 >
                   {deleting === proj.id ? 'Confirmar exclusão' : 'Excluir'}
                 </button>
