@@ -32,11 +32,7 @@ export function getCurrentCompany() {
 
 export function applyBranding(company) {
   const root = document.documentElement;
-  root.style.setProperty('--navy', company.cor);
-  root.style.setProperty('--gold', company.corSecundaria);
-  root.style.setProperty('--navy-light', company.cor + 'e6');
-  root.style.setProperty('--navy-mid', company.cor + '99');
-  root.style.setProperty('--gold-light', company.corSecundaria + 'cc');
-  root.style.setProperty('--gold-dark', company.corSecundaria + '88');
+  root.style.setProperty('--company-primary', company.cor);
+  root.style.setProperty('--company-secondary', company.corSecundaria);
   document.title = company.nome;
 }
