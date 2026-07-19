@@ -372,6 +372,22 @@ h1, h2, h3, h4 {
   color: var(--navy);
 }
 
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.btn-link:hover {
+  color: var(--gold);
+}
+
 /* ─── MAIN LAYOUT ─── */
 
 .main {

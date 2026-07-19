@@ -4,6 +4,7 @@ import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import DocumentForm from './components/DocumentForm';
 import html2pdf from 'html2pdf.js';
 import './App.css';
 
@@ -176,6 +177,8 @@ function App() {
         </div>
         <div className="header-user">
           <span className="user-email">{user.email}</span>
+          <button className="btn-link" onClick={() => setEtapa('dashboard')}>Meus Contratos</button>
+          <button className="btn-link" onClick={() => setEtapa('documentos')}>Documentos</button>
           <button className="btn-logout" onClick={logout}>Sair</button>
         </div>
       </header>
@@ -247,6 +250,10 @@ function App() {
               <button type="submit" className="btn-primary btn-large">Gerar Contrato</button>
             </form>
           </section>
+        )}
+
+        {etapa === 'documentos' && (
+          <DocumentForm />
         )}
 
         {etapa === 'preview' && contratoGerado && (
