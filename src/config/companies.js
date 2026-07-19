@@ -22,6 +22,13 @@ const companies = {
 };
 
 export function getCurrentCompany() {
+  const params = new URLSearchParams(window.location.search);
+  const urlSlug = params.get('empresa');
+  if (urlSlug && companies[urlSlug]) {
+    localStorage.setItem('contrato_company_slug', urlSlug);
+    return { ...companies[urlSlug] };
+  }
+
   const stored = localStorage.getItem('contrato_company_slug');
   if (stored && companies[stored]) {
     return { ...companies[stored] };
