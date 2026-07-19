@@ -1,13 +1,27 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth';
-import { auth } from '../firebase/config';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const AuthContext = createContext({});
+const STORAGE_USERS = 'contrato_users';
+const STORAGE_SESSION = 'contrato_session';
+
+function getUsers() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_USERS) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveUsers(users) {
+  localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
+}
+
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode('cc_' + password + '_salt');
+  const buf = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -18,20 +32,47 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      setLoading(false);
-    });
-    return unsub;
+    const session = localStorage.getItem(STORAGE_SESSION);
+    if (session) {
+      const users = getUsers();
+      if (users[session]) {
+        setUser({ email: session });
+      }
+    }
+    setLoading(false);
   }, []);
 
-  const login = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password);
+  const login = useCallback(async (email, password) => {
+    const users = getUsers();
+    const key = email.toLowerCase().trim();
+    if (!users[key]) {
+      throw { code: 'user-not-found' };
+    }
+    const hash = await hashPassword(password);
+    if (users[key].hash !== hash) {
+      throw { code: 'wrong-password' };
+    }
+    localStorage.setItem(STORAGE_SESSION, key);
+    setUser({ email: key });
+  }, []);
 
-  const register = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password);
+  const register = useCallback(async (email, password) => {
+    const users = getUsers();
+    const key = email.toLowerCase().trim();
+    if (users[key]) {
+      throw { code: 'email-already-in-use' };
+    }
+    const hash = await hashPassword(password);
+    users[key] = { hash };
+    saveUsers(users);
+    localStorage.setItem(STORAGE_SESSION, key);
+    setUser({ email: key });
+  }, []);
 
-  const logout = () => signOut(auth);
+  const logout = useCallback(() => {
+    localStorage.removeItem(STORAGE_SESSION);
+    setUser(null);
+  }, []);
 
   const value = { user, loading, login, register, logout };
 

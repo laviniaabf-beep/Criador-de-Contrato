@@ -17,12 +17,8 @@ export default function Login({ onToggleForm }) {
       await login(email, password);
     } catch (err) {
       const msg =
-        err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential'
+        err.code === 'user-not-found' || err.code === 'wrong-password'
           ? 'Email ou senha inválidos.'
-          : err.code === 'auth/invalid-email'
-          ? 'Email inválido.'
-          : err.code === 'auth/too-many-requests'
-          ? 'Conta bloqueada temporariamente. Tente novamente mais tarde.'
           : 'Erro ao fazer login. Tente novamente.';
       setError(msg);
     } finally {

@@ -28,12 +28,8 @@ export default function Register({ onToggleForm }) {
       await register(email, password);
     } catch (err) {
       const msg =
-        err.code === 'auth/email-already-in-use'
+        err.code === 'email-already-in-use'
           ? 'Este email já está cadastrado.'
-          : err.code === 'auth/invalid-email'
-          ? 'Email inválido.'
-          : err.code === 'auth/weak-password'
-          ? 'Senha muito fraca.'
           : 'Erro ao cadastrar. Tente novamente.';
       setError(msg);
     } finally {
