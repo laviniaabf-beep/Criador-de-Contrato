@@ -9,13 +9,13 @@ const companies = {
   },
   'empresaa': {
     nome: 'Empresa A Ltda',
-    logo: `${base}logos/default.svg`,
+    logo: `${base}logos/empresaa.svg`,
     cor: '#1B4332',
     corSecundaria: '#D4A373',
   },
   'empresab': {
     nome: 'Empresa B S.A.',
-    logo: `${base}logos/default.svg`,
+    logo: `${base}logos/empresab.svg`,
     cor: '#5B2E91',
     corSecundaria: '#E8C547',
   },
