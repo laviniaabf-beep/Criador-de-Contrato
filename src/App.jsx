@@ -4,7 +4,6 @@ import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
-import DocumentForm from './components/DocumentForm';
 import html2pdf from 'html2pdf.js';
 import './App.css';
 
@@ -18,6 +17,31 @@ function loadProjects(email) {
   } catch {
     return [];
   }
+}
+
+function maskDoc(value) {
+  const digits = value.replace(/\D/g, '').slice(0, 14);
+  if (digits.length <= 11) {
+    return digits
+      .replace(/^(\d{3})(\d)/, '$1.$2')
+      .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+      .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+  }
+  return digits
+    .replace(/^(\d{2})(\d)/, '$1.$2')
+    .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+    .replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4')
+    .replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, '$1.$2.$3/$4-$5');
+}
+
+function maskCurrency(value) {
+  const digits = value.replace(/\D/g, '').slice(0, 12);
+  if (!digits) return '';
+  const padded = digits.padStart(3, '0');
+  const intPart = padded.slice(0, -2);
+  const decPart = padded.slice(-2);
+  const formatted = intPart.replace(/^0+/, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.') || '0';
+  return `R$ ${formatted},${decPart}`;
 }
 
 function App() {
@@ -39,7 +63,13 @@ function App() {
   }, [user]);
 
   const handleChange = (nome, valor) => {
-    setFormData((prev) => ({ ...prev, [nome]: valor }));
+    let masked = valor;
+    if (nome === 'doc1' || nome === 'doc2') {
+      masked = maskDoc(valor);
+    } else if (nome === 'valor') {
+      masked = maskCurrency(valor);
+    }
+    setFormData((prev) => ({ ...prev, [nome]: masked }));
   };
 
   const confirmarTema = (e) => {
@@ -178,7 +208,6 @@ function App() {
         <div className="header-user">
           <span className="user-email">{user.email}</span>
           <button className="btn-link" onClick={() => setEtapa('dashboard')}>Meus Contratos</button>
-          <button className="btn-link" onClick={() => setEtapa('documentos')}>Documentos</button>
           <button className="btn-logout" onClick={logout}>Sair</button>
         </div>
       </header>
@@ -250,10 +279,6 @@ function App() {
               <button type="submit" className="btn-primary btn-large">Gerar Contrato</button>
             </form>
           </section>
-        )}
-
-        {etapa === 'documentos' && (
-          <DocumentForm />
         )}
 
         {etapa === 'preview' && contratoGerado && (
