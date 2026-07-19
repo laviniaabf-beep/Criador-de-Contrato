@@ -3,7 +3,7 @@ const base = import.meta.env.BASE_URL || '/';
 const companies = {
   'criador-contrato': {
     nome: 'Criador de Contratos',
-    logo: `${base}logos/sopafria.jpg`,
+    logo: `${base}logos/default.svg`,
     cor: '#0F172A',
     corSecundaria: '#C5A880',
   },
@@ -18,12 +18,6 @@ const companies = {
     logo: `${base}logos/empresab.svg`,
     cor: '#5B2E91',
     corSecundaria: '#E8C547',
-  },
-  'sopafria': {
-    nome: 'Sopafria',
-    logo: `${base}logos/sopafria.jpg`,
-    cor: '#0A3D62',
-    corSecundaria: '#F39C12',
   },
 };
 
