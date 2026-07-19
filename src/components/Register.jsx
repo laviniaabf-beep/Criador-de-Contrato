@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import AuthLayout from './AuthLayout';
 
-export default function Register({ onToggleForm }) {
+export default function Register({ onToggleForm, company }) {
   const { register } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,12 +38,14 @@ export default function Register({ onToggleForm }) {
   };
 
   return (
-    <AuthLayout>
+    <AuthLayout company={company}>
       <button className="auth-top-link" onClick={onToggleForm}>Entre</button>
       <div className="auth-card">
         <div className="auth-brand">
-          <span className="logo-icon">⚖️</span>
-          <h1>Criador de Contratos</h1>
+          <span className="logo-icon">
+            <img src={company?.logo || '/logos/default.svg'} alt="" className="brand-logo" />
+          </span>
+          <h1>{company?.nome || 'Criador de Contratos'}</h1>
         </div>
         {error && <div className="auth-error">{error}</div>}
         <form onSubmit={handleSubmit}>

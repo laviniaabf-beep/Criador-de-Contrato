@@ -1,10 +1,12 @@
-export default function AuthLayout({ children }) {
+export default function AuthLayout({ children, company }) {
   return (
     <div className="auth-container">
       <div className="auth-institutional">
         <div className="auth-institutional-brand">
-          <span className="logo-icon">⚖️</span>
-          <h1>Criador de Contratos</h1>
+          <div className="logo-icon">
+            <img src={company?.logo || '/logos/default.svg'} alt={company?.nome || ''} className="auth-logo" />
+          </div>
+          <h1>{company?.nome || 'Criador de Contratos'}</h1>
           <p className="tagline">
             "A segurança jurídica começa com documentos bem elaborados."
           </p>

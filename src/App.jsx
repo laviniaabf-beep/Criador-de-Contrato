@@ -4,6 +4,7 @@ import { gerarContrato } from './templates/contractTemplates';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import { getCurrentCompany, applyBranding } from './config/companies';
 import html2pdf from 'html2pdf.js';
 import './App.css';
 
@@ -54,7 +55,14 @@ function App() {
   const [contratoGerado, setContratoGerado] = useState('');
   const [currentProjectId, setCurrentProjectId] = useState(null);
 
+  const [company, setCompany] = useState(null);
   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const c = getCurrentCompany();
+    setCompany(c);
+    applyBranding(c);
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -174,10 +182,11 @@ function App() {
   }
 
   if (!user) {
+    const authProps = { onToggleForm: (p) => setAuthPage(p), company };
     return authPage === 'login' ? (
-      <Login onToggleForm={() => setAuthPage('register')} />
+      <Login {...authProps} />
     ) : (
-      <Register onToggleForm={() => setAuthPage('login')} />
+      <Register {...authProps} />
     );
   }
 
@@ -202,8 +211,10 @@ function App() {
     <div className="app">
       <header className="header">
         <div className="header-brand">
-          <div className="brand-icon">⚖️</div>
-          <h1>Criador de Contratos <span className="brand-badge">Legal</span></h1>
+          <div className="brand-icon">
+            <img src={company?.logo || '/logos/default.svg'} alt={company?.nome || ''} className="brand-logo" />
+          </div>
+          <h1>{company?.nome || 'Criador de Contratos'} <span className="brand-badge">Legal</span></h1>
         </div>
         <div className="header-user">
           <span className="user-email">{user.email}</span>
