@@ -19,21 +19,13 @@ const companies = {
   },
 };
 
-const devHosts = ['localhost', '127.0.0.1'];
-
 export function getCurrentCompany() {
-  const host = window.location.hostname;
-  const dev = devHosts.some((h) => host.includes(h));
-
-  if (dev) {
-    const stored = localStorage.getItem('contrato_company_slug');
-    if (stored && companies[stored]) {
-      return { ...companies[stored], dev: true };
-    }
-    console.log('[Multi-tenant] Debug: mude de empresa com:', "localStorage.setItem('contrato_company_slug','empresaa')");
-    return { ...companies['criador-contrato'], dev: true };
+  const stored = localStorage.getItem('contrato_company_slug');
+  if (stored && companies[stored]) {
+    return { ...companies[stored] };
   }
 
+  const host = window.location.hostname;
   const slug = host.split('.')[0];
   return companies[slug] || { ...companies['criador-contrato'] };
 }
