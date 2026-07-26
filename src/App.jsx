@@ -191,20 +191,20 @@ function App() {
   }
 
   const campos = [
-    { nome: 'parte1', label: 'Nome do Contratante', tipo: 'text', obrigatorio: true },
-    { nome: 'doc1', label: 'CPF/CNPJ do Contratante', tipo: 'text', obrigatorio: true, placeholder: '000.000.000-00 ou 00.000.000/0000-00' },
-    { nome: 'endereco1', label: 'Endereço do Contratante', tipo: 'text' },
-    { nome: 'parte2', label: 'Nome do Contratado', tipo: 'text', obrigatorio: true },
-    { nome: 'doc2', label: 'CPF/CNPJ do Contratado', tipo: 'text', obrigatorio: true, placeholder: '000.000.000-00 ou 00.000.000/0000-00' },
-    { nome: 'endereco2', label: 'Endereço do Contratado', tipo: 'text' },
-    { nome: 'objeto', label: 'Objeto do Contrato (descrição detalhada)', tipo: 'textarea', obrigatorio: true },
-    { nome: 'condicoes', label: 'Condições Específicas', tipo: 'textarea' },
-    { nome: 'valor', label: 'Valor (R$)', tipo: 'text', placeholder: 'R$ 0,00' },
-    { nome: 'forma_pagamento', label: 'Forma de Pagamento', tipo: 'text' },
-    { nome: 'prazo', label: 'Prazo de Vigência', tipo: 'text', obrigatorio: true },
+    { nome: 'parte1', label: 'Nome do Contratante', tipo: 'text', obrigatorio: true, placeholder: 'Ex: João Silva' },
+    { nome: 'doc1', label: 'CPF/CNPJ do Contratante', tipo: 'text', obrigatorio: true, placeholder: 'Ex: 123.456.789-00' },
+    { nome: 'endereco1', label: 'Endereço do Contratante', tipo: 'text', placeholder: 'Ex: Rua das Flores, 123, Centro' },
+    { nome: 'parte2', label: 'Nome do Contratado (advogado)', tipo: 'text', obrigatorio: true, placeholder: 'Ex: Dr. Carlos Mendes' },
+    { nome: 'doc2', label: 'CPF/CNPJ do Contratado', tipo: 'text', obrigatorio: true, placeholder: 'Ex: 987.654.321-00' },
+    { nome: 'endereco2', label: 'Endereço do Contratado', tipo: 'text', placeholder: 'Ex: Av. Principal, 456, Sala 10' },
+    { nome: 'objeto', label: 'Objeto do Contrato (descrição detalhada)', tipo: 'textarea', obrigatorio: true, placeholder: 'Ex: Defesa criminal nos autos do processo nº 0000000-00.0000.0.00.0000, em trâmite na Vara Criminal da Comarca de Curitiba/PR' },
+    { nome: 'condicoes', label: 'Condições Específicas da Ação Penal', tipo: 'textarea', placeholder: 'Ex: O contratado acompanhará todas as audiências, interporá recursos cabíveis e manterá o contratante informado sobre o andamento processual' },
+    { nome: 'valor', label: 'Valor dos Honorários (R$)', tipo: 'text', placeholder: 'Ex: 5.000,00' },
+    { nome: 'forma_pagamento', label: 'Forma de Pagamento', tipo: 'text', placeholder: 'Ex: Pix em parcela única até 5 dias após a assinatura' },
+    { nome: 'prazo', label: 'Prazo de Vigência', tipo: 'text', obrigatorio: true, placeholder: 'Ex: 90 dias' },
     { nome: 'data_inicio', label: 'Data de Início', tipo: 'date' },
-    { nome: 'cidade', label: 'Cidade', tipo: 'text', obrigatorio: true },
-    { nome: 'disposicoes', label: 'Disposições Gerais / Foro', tipo: 'textarea' },
+    { nome: 'cidade', label: 'Cidade', tipo: 'text', obrigatorio: true, placeholder: 'Ex: Curitiba' },
+    { nome: 'disposicoes', label: 'Foro', tipo: 'textarea', placeholder: 'Ex: Fica eleito o foro da Comarca de Curitiba/PR' },
   ];
 
   return (
