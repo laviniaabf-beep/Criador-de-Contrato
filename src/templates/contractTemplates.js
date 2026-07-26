@@ -72,7 +72,7 @@ export const gerarContrato = (tema, dados) => {
   const extensoStr = valorExt ? ` (${valorExt})` : '';
 
   const condicoes = dados.condicoes
-    ? `\n2.6. Condições específicas adicionais: ${dados.condicoes}`
+    ? `\n2.8. Condições específicas adicionais acordadas entre as partes: ${dados.condicoes}`
     : '';
 
   const pagamento = dados.forma_pagamento
@@ -111,15 +111,29 @@ ${linha()}
 
 CLÁUSULA SEGUNDA – DAS CONDIÇÕES ESPECÍFICAS DA AÇÃO PENAL
 
-2.1. O CONTRATADO assume o compromisso de defender os interesses do CONTRATANTE no âmbito da ação penal em que este figure como parte, atuando com diligência, lealdade e estrita observância das normas ético-disciplinares da advocacia.
+2.1. O CONTRATADO assume o compromisso de defender os interesses do CONTRATANTE no âmbito da ação penal em que este figure como parte, atuando com diligência, lealdade e estrita observância das normas ético-disciplinares da advocacia e do Código de Processo Penal.
 
-2.2. O prazo de vigência da atuação profissional será de ${fmtDoc(dados.prazo)}, contado a partir da data de assinatura deste instrumento${dados.data_inicio ? `, iniciando-se em ${dados.data_inicio}.` : '.'}
+2.2. O CONTRATADO obriga-se a:
+   a) Elaborar e protocolar todas as peças processuais cabíveis, incluindo defesa preliminar, resposta à acusação, alegações finais, memoriais e recursos;
+   b) Acompanhar pessoalmente as audiências designadas, salvo motivo de força maior devidamente justificado;
+   c) Manter o CONTRATANTE informado sobre o andamento processual, prazos e atos relevantes;
+   d) Requerer as provas necessárias à defesa, incluindo oitiva de testemunhas, perícias e diligências;
+   e) Interpor recursos ordinários e extraordinários quando cabíveis e tecnicamente recomendáveis.
 
-2.3. O CONTRATANTE obriga-se a fornecer tempestivamente todos os documentos, informações e elementos necessários à elaboração da defesa técnica, sob pena de impossibilidade de adequado exercício da advocacia.
+2.3. O prazo de vigência da atuação profissional será de ${fmtDoc(dados.prazo)}, contado a partir da data de assinatura deste instrumento${dados.data_inicio ? `, iniciando-se em ${dados.data_inicio}.` : '.'}
 
-2.4. A substituição do profissional ou a renúncia ao mandato somente ocorrerá mediante comunicação prévia por escrito, respeitado o prazo legal para que o CONTRATANTE constitua novo defensor.
+2.4. O CONTRATANTE obriga-se a:
+   a) Fornecer tempestivamente todos os documentos, informações e elementos necessários à elaboração da defesa técnica;
+   b) Comparecer aos atos processuais quando sua presença for obrigatória;
+   c) Manter seus dados de contato atualizados perante o CONTRATADO e o Juízo;
+   d) Comunicar imediatamente qualquer intimação ou citação recebida;
+   e) Honrar pontualmente os honorários contratados.
 
-2.5. As partes comprometem-se a atuar com absoluta boa-fé, lealdade processual e respeito mútuo durante toda a relação contratual.
+2.5. A substituição do profissional ou a renúncia ao mandato somente ocorrerá mediante comunicação prévia por escrito, respeitado o prazo legal de 10 (dez) dias para que o CONTRATANTE constitua novo defensor, nos termos do art. 5º, § 3º, do Estatuto da Advocacia.
+
+2.6. As partes comprometem-se a atuar com absoluta boa-fé, lealdade processual e respeito mútuo durante toda a relação contratual.
+
+2.7. Fica ressalvado que o CONTRATADO não se responsabiliza por resultados específicos, comprometendo-se com a adoção de todos os meios lícitos e cabíveis para a defesa dos interesses do CONTRATANTE, sem garantia de êxito.
 ${condicoes}
 
 ${linha()}
