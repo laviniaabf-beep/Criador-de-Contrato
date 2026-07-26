@@ -611,6 +611,7 @@ h1, h2, h3, h4 {
   font-size: 12pt;
   line-height: 1.9;
   color: #1a1a1a;
+  text-align: justify;
 }
 
 .contrato-titulo {

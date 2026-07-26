@@ -103,36 +103,36 @@ ${linha()}
 
 CLÁUSULA PRIMEIRA – DO OBJETO
 
-O presente contrato tem por objeto: ${dados.objeto || '_________________________'}.
+O presente contrato tem por objeto a prestação de serviços advocatícios de defesa criminal em favor do CONTRATANTE, conforme detalhamento a seguir: ${dados.objeto || '_________________________'}.
 
-Parágrafo único. O serviço objeto deste contrato deverá obrigatoriamente atender às especificações previamente definidas e alinhadas entre as partes, respeitando os prazos estabelecidos e garantindo a qualidade técnica e o correto funcionamento de todas as funcionalidades contratadas.
+Parágrafo único. A atuação profissional objeto deste contrato abrange todos os atos necessários ao exercício da defesa dos interesses do CONTRATANTE, incluindo a elaboração de peças processuais, acompanhamento de audiências, interposição de recursos e demais medidas cabíveis no âmbito da ação penal.
 
 ${linha()}
 
-CLÁUSULA SEGUNDA – DAS CONDIÇÕES E OBRIGAÇÕES
+CLÁUSULA SEGUNDA – DAS CONDIÇÕES ESPECÍFICAS DA AÇÃO PENAL
 
-2.1. As partes comprometem-se a executar todas as obrigações descritas estritamente conforme as especificações técnicas e funcionais acordadas entre as partes.
+2.1. O CONTRATADO assume o compromisso de defender os interesses do CONTRATANTE no âmbito da ação penal em que este figure como parte, atuando com diligência, lealdade e estrita observância das normas ético-disciplinares da advocacia.
 
-2.2. O prazo para conclusão dos serviços será de ${fmtDoc(dados.prazo)}, contado a partir da data de assinatura deste instrumento${dados.data_inicio ? `, iniciando-se em ${dados.data_inicio}.` : '.'}
+2.2. O prazo de vigência da atuação profissional será de ${fmtDoc(dados.prazo)}, contado a partir da data de assinatura deste instrumento${dados.data_inicio ? `, iniciando-se em ${dados.data_inicio}.` : '.'}
 
-2.3. Cada parte obriga-se a fornecer tempestivamente todas as informações, dados e materiais necessários para a integral realização do objeto contratual.
+2.3. O CONTRATANTE obriga-se a fornecer tempestivamente todos os documentos, informações e elementos necessários à elaboração da defesa técnica, sob pena de impossibilidade de adequado exercício da advocacia.
 
-2.4. Quaisquer alterações no escopo inicial do projeto deverão ser formalmente aprovadas por ambas as partes antes do início de sua respectiva execução, sob pena de não serem consideradas válidas.
+2.4. A substituição do profissional ou a renúncia ao mandato somente ocorrerá mediante comunicação prévia por escrito, respeitado o prazo legal para que o CONTRATANTE constitua novo defensor.
 
-2.5. As partes comprometem-se mutuamente a cumprir todas as cláusulas deste contrato, agindo sempre pautadas nos princípios da boa-fé e do respeito mútuo.
+2.5. As partes comprometem-se a atuar com absoluta boa-fé, lealdade processual e respeito mútuo durante toda a relação contratual.
 ${condicoes}
 
 ${linha()}
 
 CLÁUSULA TERCEIRA – DO VALOR
 
-Pela prestação dos serviços objeto deste contrato, o CONTRATANTE pagará ao CONTRATADO o valor total de ${valorFmt}${extensoStr}.
+Pelos serviços advocatícios ora contratados, o CONTRATANTE pagará ao CONTRATADO os honorários no valor total de ${valorFmt}${extensoStr}.
 
 ${linha()}
 
-CLÁUSULA QUARTA – DA FORMA DE PAGAMENTO
+CLÁUSULA QUARTA – DA FORMA DE PAGAMENTO DOS HONORÁRIOS
 
-O pagamento será realizado ${pagamento}
+O pagamento dos honorários será realizado ${pagamento}
 
 ${linha()}
 
@@ -142,11 +142,11 @@ O presente contrato terá vigência pelo período de ${fmtDoc(dados.prazo)}, ini
 
 ${linha()}
 
-CLÁUSULA SEXTA – DA RESCISÃO
+CLÁUSULA SEXTA – DA RESCISÃO E RENÚNCIA
 
-Qualquer das partes poderá rescindir o presente contrato mediante notificação prévia por escrito com antecedência mínima de 30 (trinta) dias, salvo disposição em contrário acordada entre as partes.
+O CONTRATANTE poderá rescindir o presente contrato a qualquer tempo, mediante comunicação por escrito, respondendo pelos honorários devidos pelos serviços já prestados.
 
-Em caso de descumprimento de qualquer cláusula contratual, a parte prejudicada poderá rescindir o contrato de pleno direito, independentemente de notificação judicial ou extrajudicial.
+O CONTRATADO poderá renunciar ao mandato na forma do art. 5º, § 3º, do Estatuto da Advocacia, mediante comunicação prévia com antecedência mínima de 10 (dez) dias, para que o CONTRATANTE constitua novo defensor.
 
 ${linha()}
 
