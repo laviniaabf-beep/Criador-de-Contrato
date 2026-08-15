@@ -1,17 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
       <stop stop-color="#1E3A8A"/>
+      <stop offset="0.55" stop-color="#172554"/>
       <stop offset="1" stop-color="#0F172A"/>
     </linearGradient>
+    <linearGradient id="paper" x1="20" y1="14" x2="44" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EDEAE2"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
   </defs>
-  <rect width="40" height="40" rx="9" fill="url(#bg)"/>
-  <rect x="11.5" y="8.5" width="17" height="23" rx="2.5" fill="#FBFAF6"/>
-  <path d="M25 8.5h1.5a2 2 0 0 1 2 2V12h-3.5V8.5z" fill="#C5A880"/>
-  <line x1="14.5" y1="15" x2="25.5" y2="15" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="14.5" y1="19" x2="25.5" y2="19" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="14.5" y1="23" x2="22" y2="23" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="14.5" y1="27" x2="22" y2="27" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="24.5" cy="26" r="4" fill="#C5A880"/>
-  <path d="M22.4 26l1.5 1.5 2.9-3" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="1.5" y="1.5" width="61" height="61" rx="15" fill="url(#bg)" stroke="#C5A880" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <g filter="url(#shadow)">
+    <path d="M23 12h14.5a4.5 4.5 0 0 1 4.5 4.5v31a4.5 4.5 0 0 1-4.5 4.5H23A4.5 4.5 0 0 1 18.5 47.5v-31A4.5 4.5 0 0 1 23 12z" fill="url(#paper)"/>
+    <path d="M42 16.5V18h-3v-3h1.5a1.5 1.5 0 0 1 1.5 1.5z" fill="#C5A880"/>
+    <line x1="23.5" y1="22" x2="40.5" y2="22" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="23.5" y1="27.5" x2="40.5" y2="27.5" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="23.5" y1="33" x2="37" y2="33" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="23.5" y1="38.5" x2="37" y2="38.5" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="38" cy="42" r="6.5" fill="#C5A880"/>
+    <circle cx="38" cy="42" r="6.5" fill="none" stroke="#D9C287" stroke-width="1"/>
+    <path d="M34.2 42l2.6 2.6 4.9-5.2" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </svg>
