@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="0" y="0" width="64" height="64" rx="14" fill="#13547E"/>
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#031C22"/>
   <rect x="19" y="11" width="26" height="42" rx="3" fill="#FFFFFF"/>
-  <path d="M39.5 11v6a2 2 0 0 0 2 2h6l-8-8z" fill="#C5A880"/>
-  <line x1="24" y1="26" x2="37" y2="26" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
-  <line x1="24" y1="31" x2="40" y2="31" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
-  <line x1="24" y1="36" x2="35" y2="36" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
-  <line x1="24" y1="41" x2="35" y2="41" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
-  <path d="M42 29l12 12a2.8 2.8 0 0 1 0 4L49 50l-16-16 4-4 4-4 2-2a2.8 2.8 0 0 1 4 0z" fill="#C5A880"/>
-  <path d="M48 44l6-6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M39.5 11v6a2 2 0 0 0 2 2h6l-8-8z" fill="#B0F641"/>
+  <line x1="24" y1="26" x2="37" y2="26" stroke="#031C22" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="31" x2="40" y2="31" stroke="#031C22" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="36" x2="35" y2="36" stroke="#031C22" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="41" x2="35" y2="41" stroke="#031C22" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 29l12 12a2.8 2.8 0 0 1 0 4L49 50l-16-16 4-4 4-4 2-2a2.8 2.8 0 0 1 4 0z" fill="#B0F641"/>
+  <path d="M48 44l6-6" stroke="#031C22" stroke-width="2" stroke-linecap="round"/>
 </svg>

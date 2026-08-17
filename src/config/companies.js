@@ -4,8 +4,8 @@ const companies = {
   'criador-contrato': {
     nome: 'Criador de Contratos',
     logo: `${base}logos/default.svg`,
-    cor: '#13547E',
-    corSecundaria: '#C5A880',
+    cor: '#031C22',
+    corSecundaria: '#B0F641',
   },
   'empresaa': {
     nome: 'Empresa A Ltda',
